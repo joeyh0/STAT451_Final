@@ -1,10 +1,7 @@
 # STAT451_Final
 
 Group Members:
-Hannah Ryu
-Joey Huang 
-Jaime Li
-Dorian Ramey
+Hannah Ryu, Joey Huang, Jaime Li, Dorian Ramey
 
 
 - **Dorian:** Vaccination rates by state  
