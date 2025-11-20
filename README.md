@@ -53,13 +53,3 @@ The data shows a clear progression:
 
 ---
 
-## Suggested Final Slide
-A simple visual summarizing the narrative:
-
-- **Variation in vaccination uptake (Dorian)**  
-- **Macro economic context (Joey)**  
-- **Downstream mortality outcomes (Jaime)**  
-- **Structural driver: health expenditure (Hannah)**
-
-This creates a coherent, end to end story that connects structural factors, behavior, and outcomes.
-
