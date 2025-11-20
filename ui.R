@@ -18,7 +18,9 @@ ui <- dashboardPage(
   
   # Show a plot of the generated distribution
   dashboardBody(
-    plotOutput("distPlot"),
-    plotOutput("geoplot")
+    tabItem(tabName = "Dorian",
+      plotOutput("distPlot"),
+      plotOutput("geoplot")
+    )
   )
 )
