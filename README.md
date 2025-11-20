@@ -7,78 +7,59 @@ Jaime Li
 Dorian Ramey
 
 
-- Dorian: Looking at vaccination rates by state
-- Joey: Economic impact of COVID-19 by country
-- Jaime: COVID-19 deaths during various stages of vaccination series
-- Hannah: Comparing healthcare expenditure versus vaccination coverage
+- \textbf{Dorian:} Looking at vaccination rates by state
+- \textbf{Joey:} Economic impact of COVID-19 by country
+- \textbf{Jaime:} COVID-19 deaths during various stages of vaccination series
+- \textbf{Hannah:} Comparing healthcare expenditure versus vaccination coverage
 
-- Tell a story about why some regions handled COVID far better than others, and how structural factors, policy choices, and resource allocation shaped disease outcomes.
+## Overview
+This dashboard tells a unified story about **why some regions handled COVID far better than others**, and how **structural factors, economic resilience, and healthcare investment** shaped vaccination outcomes and mortality.
 
-Your angle is essentially:
-Vaccination outcomes were not just about individual behavior, but about state-level readiness, economic resilience, and health system investment.
+The central idea:
+**Vaccination outcomes were not just about individual behavior, but about state-level readiness, economic conditions, and long term health system investment.**
 
-That lets all four projects slot in naturally.
+---
 
-How to weave each person’s work into that story
-1. Set the stage: What did vaccination rollouts look like across states?
+## Story Structure
 
-Dorian’s part answers the opening question:
-Who vaccinated faster? Who lagged? Which states climbed the coverage curve early?
+### 1. Vaccination Patterns Across States (Dorian)
+We start by examining how vaccination rates varied across US states.  
+Some states rolled out vaccines rapidly, while others lagged.  
+This introduces the theme of **heterogeneity** in vaccine uptake.
 
-This introduces the first key theme: heterogeneity. Nothing was uniform.
+### 2. Global Economic Impacts of COVID-19 (Joey)
+Next, we zoom out to the international scale.  
+Countries differed in how severely their economies were hit and how resilient they were.  
+Economic strength shaped the capacity to support public health measures and vaccination campaigns.
 
-2. Connect vaccination patterns to global economic shock
+### 3. COVID-19 Deaths Across Vaccination Stages (Jaime)
+We then connect vaccination levels to mortality.  
+As populations progressed through the vaccine series, death rates shifted significantly.  
+This shows how vaccination disparities translated into **real health outcomes**.
 
-Joey’s part zooms out: while US states varied in uptake, countries varied in economic resilience.
+### 4. Healthcare Expenditure vs Vaccination Coverage (Hannah)
+Finally, we highlight one structural driver behind these differences.  
+Regions with higher healthcare expenditures generally had stronger infrastructure, better access, and more consistent vaccination coverage.  
+Lower investment regions saw patchier uptake and worse outcomes.
 
-Tie it to the idea that:
-Regions with stronger economies could implement broader public-health measures, sustain lockdowns, and support vaccination campaigns.
-Weaker economies took heavier hits that shaped public willingness or ability to comply.
+---
 
-This builds a macro-context for the disparities.
+## Core Insight
+**COVID outcomes weren’t random. They reflected long standing investments in public health, economic capacity, and healthcare systems.**
 
-3. Bring it back to outcomes: deaths across vaccination stages
+The data shows a clear progression:
 
-Jaime’s part tackles the core public-health impact.
-As vaccination levels changed, the mortality curve changed too.
+**Resources → Vaccination → Mortality Outcomes**
 
-This is your key pivot point:
-“Vaccination patterns and economic conditions weren’t abstract. They literally changed who survived.”
+---
 
-Show how deaths stabilized or dropped once people reached certain doses.
+## Suggested Final Slide
+A simple visual summarizing the narrative:
 
-4. Explain one major underlying driver: health expenditure
+- **Variation in vaccination uptake (Dorian)**  
+- **Macro economic context (Joey)**  
+- **Downstream mortality outcomes (Jaime)**  
+- **Structural driver: health expenditure (Hannah)**
 
-Your part wraps it all together:
-States or countries with higher health expenditure tend to have stronger infrastructure, better outreach, and more equitable vaccine distribution.
-
-Your plot answers the “why did outcomes diverge?” question:
-
-High expenditure → better vaccine coverage → better outcomes
-
-Low expenditure → patchier coverage → worse health and economic impacts
-
-The overarching message
-
-Something like:
-
-COVID outcomes weren’t random. They reflected long term investments in public health, economic resilience, and healthcare systems. The data shows a clear chain: places with stronger health investment and economic stability achieved higher vaccination coverage, which directly reduced mortality.
-
-Short, sharp, defensible.
-
-Optional final slide idea
-
-End with a clean story arc visual:
-
-Variation in vaccination uptake (Dorian)
-
-Macro-level economic context (Joey)
-
-Downstream mortality outcomes (Jaime)
-
-Structural driver: health spending (you)
-
-It becomes:
-
-Resources → Vaccination → Outcomes
+This creates a coherent, end to end story that connects structural factors, behavior, and outcomes.
 
