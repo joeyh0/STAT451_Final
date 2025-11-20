@@ -26,6 +26,7 @@ ui <- dashboardPage(
           )
           box(plotOutput("distPlot")),
           box(plotOutput("geoplot"))
+          #testing
         )
       )
     )
