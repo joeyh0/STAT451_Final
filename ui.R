@@ -18,9 +18,11 @@ ui <- dashboardPage(
   
   # Show a plot of the generated distribution
   dashboardBody(
-    tabItem(tabName = "State Vaccinations",
-      plotOutput("distPlot"),
-      plotOutput("geoplot")
+    tabItems(
+      tabItem(tabName = "State Vaccinations",
+        plotOutput("distPlot"),
+        plotOutput("geoplot")
+      )
     )
   )
 )
