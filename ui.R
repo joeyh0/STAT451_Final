@@ -11,12 +11,15 @@ ui <- dashboardPage(
 
   #choose number of states
   dashboardSidebar(
+    sidebarMenu(
+      menuItem("State Vaccinations", tabName = "State_Vaccinations")
+    )
   ),
   
   # Show a plot of the generated distribution
   dashboardBody(
     tabItems(
-      tabItem(tabName = "State Vaccinations",
+      tabItem(tabName = "State_Vaccinations",
         fluidRow(
           box(
             selectInput("state", "Choose state:", choices = us_state_vaccinations$location)
