@@ -11,17 +11,19 @@ ui <- dashboardPage(
 
   #choose number of states
   dashboardSidebar(
-    selectInput("state",
-                "Choose state:",
-                choices = us_state_vaccinations$location)
   ),
   
   # Show a plot of the generated distribution
   dashboardBody(
     tabItems(
       tabItem(tabName = "State Vaccinations",
-        plotOutput("distPlot"),
-        plotOutput("geoplot")
+        fluidRow(
+          box(
+            selectInput("state", "Choose state:", choices = us_state_vaccinations$location)
+          )
+          box(plotOutput("distPlot")),
+          box(plotOutput("geoplot"))
+        )
       )
     )
   )
