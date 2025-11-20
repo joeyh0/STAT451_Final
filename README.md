@@ -7,10 +7,10 @@ Jaime Li
 Dorian Ramey
 
 
-- \textbf{Dorian:} Looking at vaccination rates by state
-- \textbf{Joey:} Economic impact of COVID-19 by country
-- \textbf{Jaime:} COVID-19 deaths during various stages of vaccination series
-- \textbf{Hannah:} Comparing healthcare expenditure versus vaccination coverage
+- **Dorian:** Vaccination rates by state  
+- **Joey:** Economic impact of COVID-19 by country  
+- **Jaime:** COVID-19 deaths across stages of the vaccination series  
+- **Hannah:** Healthcare expenditure vs vaccination coverage  
 
 ## Overview
 This dashboard tells a unified story about **why some regions handled COVID far better than others**, and how **structural factors, economic resilience, and healthcare investment** shaped vaccination outcomes and mortality.
