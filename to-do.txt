@@ -1,0 +1,31 @@
+Things to polish/adjust:
+
+- Replacing Placeholder Text
+- Ordering the tabs in an intuitive way (maybe not 100% needed for the assignment, but should think about it before presentation)
+- Adding tab icons? 
+
+
+More specific notes for each person:
+
+Joey: 
+- Probably need to update the axis title/titles to pop out more, kind of getting lost and is fading in background
+- Maybe try to move around the maps to be on the same tab? Not sure yet
+
+Dorian:
+- Missing Scale on the US Vaccination Map? guessing you accidently deleted it :p happens
+- On the same map New York is now greyed out b/c of a NA value? Not sure if this was a problem on the previous color scale?
+
+Hannah:
+- Adjusting the scatter plot to focus on a COVID Vaccination
+- Maybe adding a feature on the data table tab where you can filter based on country, order by a column, etc. (I think the prof went over it in the
+                                                                                                               2nd shiny tutorial, lmk if you need help)
+Jaime:
+- Maybe add context to the plots, especially regarding difference between new deaths, total cases, etc. (Might be my bad I know you had text previously
+                                                                                                         but I didn't move it over when merging things)
+- Small note but I also think the lines could be thicker, especially when it's just one on a plot I think it could jump out more
+
+
+
+Random thoughts for presentation planning (not immediately important):
+- Maybe we should plan a set of countries to specifically look at that looks interesting/damning to look at?
+- Adding a separate tab for contextual information could be helpful to establish an opening for our story (... and eat up some time) 
