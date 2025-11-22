@@ -72,6 +72,48 @@ merged_data <- inc %>%
   inner_join(vax, by = "Country") %>%
   drop_na()
 
+# Dorian Data Loading/Cleanup
+us_state_vaccinations = read.csv("data/us_state_vaccinations.csv")
+us_state_vaccinations = us_state_vaccinations[, c('location', 'date', 'people_fully_vaccinated_per_hundred')]
+us_map <- map_data("state")
+
+# Pre-calculate Map Data
+us_state_vaccinations_late = us_state_vaccinations[us_state_vaccinations$date == "2023-05-10", ]
+share_states = intersect(tolower(us_state_vaccinations_late$location), us_map$region)
+us_state_vaccinations_late = us_state_vaccinations_late[tolower(us_state_vaccinations_late$location) %in% share_states, ]
+
+map_df <- us_map %>%
+  left_join(us_state_vaccinations_late %>% mutate(loc_lower = tolower(location)),
+            by = join_by(region == loc_lower))
+
+geoplot <- ggplot(map_df, aes(long, lat, group = group, fill = people_fully_vaccinated_per_hundred)) +
+  geom_polygon(color = "white", linewidth = 0.3) +  # Draw state borders
+  coord_fixed(1.3) +                           # Keep aspect ratio
+  scale_fill_viridis_c(
+    option = "mako",
+    direction = -1,
+    name = "GDP Per Capita (USD)",
+    labels = scales::label_dollar(prefix = "$", big.mark = ","),
+    breaks = c(50000, 75000, 100000)
+  ) +
+  theme_minimal() +
+  labs(
+    title = "People Fully Vaccinated Per Hundred",
+    subtitle = "Measured on June 10, 2023"
+  )
+
+# Pre-calculate National Averages (Cleaned up using tidyverse for efficiency)
+us_state_vaccinations_rv = us_state_vaccinations[!is.na(us_state_vaccinations$people_fully_vaccinated_per_hundred), ]
+
+nat_avgs <- us_state_vaccinations_rv %>%
+  group_by(date) %>%
+  summarise(
+    people_fully_vaccinated_per_hundred = mean(people_fully_vaccinated_per_hundred, na.rm = TRUE)
+  ) %>%
+  mutate(location = "National Average", date = as.character(date)) %>% 
+  ungroup() %>%
+  select(date, location, people_fully_vaccinated_per_hundred)
+
 shinyServer(function(input, output) {
   
   # Joey Plots
@@ -265,6 +307,23 @@ shinyServer(function(input, output) {
     } else {
       div("Please select at least one region from the dropdown menu to begin plotting for Plot 2.")  # show text
     }
+  })
+  
+  # Dorian Plots
+  
+  output$distPlot <- renderPlot({
+    us_state_vaccinations_filter = us_state_vaccinations[us_state_vaccinations$location == input$state, ]
+    us_state_vaccinations_filter = us_state_vaccinations_filter[! is.na(us_state_vaccinations_filter$people_fully_vaccinated_per_hundred), ]
+    us_state_vaccinations_filter = rbind(us_state_vaccinations_filter, nat_avgs)
+    
+    ggplot(us_state_vaccinations_filter, aes(x = as.Date(date), y = people_fully_vaccinated_per_hundred, color = location)) +
+      geom_line(size = 1.2) +
+      labs(title = "People Fully Vaccinated per Hundred as Compared \nWith the National Average", x = "Date", y = "People Per Hundred") +
+      theme_minimal()
+  })
+  
+  output$geoplot <- renderPlot({
+    geoplot
   })
   
   # Hannah Plots
