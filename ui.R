@@ -6,6 +6,7 @@ library(RCurl)
 library(plotly)
 library(readxl)
 library(maps)
+library(dplyr)
 
 
 # Jaime Data Loading/Cleanup
@@ -13,16 +14,20 @@ x <- getURL("https://raw.githubusercontent.com/owid/covid-19-data/refs/heads/mas
 y <- read.csv(text = x)
 data <- na.omit(y)
 
+# Dorian Data Loading/Cleanup
+us_state_vaccinations = read.csv("data/us_state_vaccinations.csv")
+us_state_vaccinations = us_state_vaccinations[, c('location', 'date', 'people_fully_vaccinated_per_hundred')]
+
 
 dashboardPage(
-  dashboardHeader(title = "COVID-19 Global GDP Impact"),
+  dashboardHeader(title = "Placeholder Title Text"),
   dashboardSidebar(
     sidebarMenu(
       menuItem("GDP Barplots (Joey)", tabName = "gdp_barplot", icon = icon("chart-bar")),
       menuItem("US Map (Joey)", tabName = "usmap", icon = icon("map")),
       menuItem("Jaime #1", tabName = "GlobalDeaths"),
       menuItem("Jaime #2", tabName = "DeathsByRegion"),
-      # menuItem("Dorian", tabName = "VaccinationByState"),
+      menuItem("Dorian", tabName = "VaccinationByState"),
       menuItem("Hannah#1", tabName = "idk1", icon = icon("chart-area")),
       menuItem("Hannah#2", tabName = "idk2", icon = icon("table"))
     )
@@ -67,7 +72,7 @@ dashboardPage(
       
       # Jaime
       tabItem(tabName = "GlobalDeaths",
-              h2("Global COVID-19 Deaths Over Time"),
+              h2("Placeholder Title Text"),
               fluidRow(
                 box(
                   title = "Plot Controls",
@@ -82,7 +87,7 @@ dashboardPage(
                   )
                 ),
                 box(
-                  title = "Global Data Visualization",
+                  title = "Placeholder Title Text",
                   status = "primary",
                   solidHeader = TRUE,
                   width = 8,
@@ -92,7 +97,7 @@ dashboardPage(
       ),
       
       tabItem(tabName = "DeathsByRegion",
-              h2("Regional COVID-19 Data Comparison"),
+              h2("Placeholder Title Text"),
               fluidRow(
                 box(
                   title = "Plot Controls",
@@ -114,7 +119,7 @@ dashboardPage(
                   )
                 ),
                 box(
-                  title = "Regional Data Visualization",
+                  title = "Placeholder Title Text",
                   status = "primary",
                   solidHeader = TRUE,
                   width = 8,
@@ -124,20 +129,38 @@ dashboardPage(
       ),
       
       # Dorian
-      # 
-      # tabItem(tabName = "VaccinationByState",
-      #         h2("Placeholder Title Text"),
-      #         fluidRow(
-      #           box(
-      #           selectInput("state",
-      #                       "Choose state:",
-      #                       choices = us_state_vaccinations$location)
-      #           )
-      #         ),
-      #         plotOutput("distPlot"),
-      #         plotOutput("geoplot")    
-      # ),
-      # 
+
+      tabItem(tabName = "VaccinationByState",
+              h2("Placeholder Title Text"),
+              fluidRow(
+                box(
+                  title = "State Selection",
+                  status = "info",
+                  solidHeader = TRUE,
+                  width = 12,
+                  selectInput("state",
+                              "Choose state:",
+                              choices = us_state_vaccinations$location)
+                )
+              ),
+              fluidRow(
+                box(
+                  title = "Placeholder Title Text",
+                  status = "primary",
+                  solidHeader = TRUE,
+                  width = 6,
+                  plotOutput("distPlot") 
+                ),
+                box(
+                  title = "Placeholder Title Text",
+                  status = "primary",
+                  solidHeader = TRUE,
+                  width = 6,
+                  plotOutput("geoplot") 
+                )
+              )
+      ),
+
       
       # Hannah
       tabItem(tabName = "idk1",
