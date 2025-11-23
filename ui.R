@@ -69,10 +69,13 @@ dashboardPage(
               h2("Mainland United States GDP Per Capita"),
               plotOutput("us_gdp_map")
       ),
-      
+    
       # Jaime
       tabItem(tabName = "GlobalDeaths",
-              h2("Placeholder Title Text"),
+              h2("Global Deaths"),
+              p("There are two data options, new Covid-19 related deaths over time and total Coiv-19 related deaths over time."),
+              p("Both plots contain the approximate date of when vaccines were first beginning to be mass distributed as well as when the first
+    booster vaccines became available (December 2020 and September 2021, respectively."),
               fluidRow(
                 box(
                   title = "Plot Controls",
@@ -81,13 +84,13 @@ dashboardPage(
                   width = 4,
                   selectInput(
                     inputId = "dropdown1",
-                    label = "Choose a data option:",
+                    label = "Choose a Data Option:",
                     choices = c("New Deaths", "Total Deaths"),
                     selected = "New Deaths"
                   )
                 ),
                 box(
-                  title = "Placeholder Title Text",
+                  title = "Plot Output",
                   status = "primary",
                   solidHeader = TRUE,
                   width = 8,
@@ -97,7 +100,9 @@ dashboardPage(
       ),
       
       tabItem(tabName = "DeathsByRegion",
-              h2("Placeholder Title Text"),
+              h2("Regional Deaths"),
+              p("There are four data options, new and total Covid-19 related deaths, and new and total Covid-19 cases."),
+              p("Select at least one region from the dropdown menu to begin plotting. Regions can be added or deleted at any time."),
               fluidRow(
                 box(
                   title = "Plot Controls",
@@ -106,7 +111,7 @@ dashboardPage(
                   width = 4,
                   selectInput(
                     inputId = "dropdown2",
-                    label = "Choose a data option:",
+                    label = "Choose a Data Option:",
                     choices = c("Total Deaths", "Total Cases", "New Deaths", "New Cases"),
                     selected = "Total Deaths"
                   ),
@@ -119,7 +124,7 @@ dashboardPage(
                   )
                 ),
                 box(
-                  title = "Placeholder Title Text",
+                  title = "Plot Output",
                   status = "primary",
                   solidHeader = TRUE,
                   width = 8,

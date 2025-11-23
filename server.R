@@ -288,7 +288,7 @@ shinyServer(function(input, output) {
                                 y = new_data[,col_name],
                                 group = location, 
                                 color = location)) +
-      geom_line() +
+      geom_line(linewidth = 1.25) +
       theme_bw() +
       labs(title = paste("Covid-19", input$dropdown2),
            y = input$dropdown2,
