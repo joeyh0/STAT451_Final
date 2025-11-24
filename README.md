@@ -40,7 +40,7 @@ Lower investment regions saw patchier uptake and worse outcomes.
 ---
 
 ## Core Insight
-**COVID outcomes weren’t random. They reflected long standing investments in public health, economic capacity, and healthcare systems.**
+**The impact and ability to recover from global health crises reflect long standing investments in public health, economic capacity, and healthcare systems.**
 
 
 ---
