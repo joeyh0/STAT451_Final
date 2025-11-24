@@ -20,16 +20,15 @@ us_state_vaccinations = us_state_vaccinations[, c('location', 'date', 'people_fu
 
 
 dashboardPage(
-  dashboardHeader(title = "Placeholder Title Text"),
+  dashboardHeader(title = "STAT 451 Final"),
   dashboardSidebar(
     sidebarMenu(
       menuItem("GDP Barplots (Joey)", tabName = "gdp_barplot", icon = icon("chart-bar")),
       menuItem("US Map (Joey)", tabName = "usmap", icon = icon("map")),
-      menuItem("Jaime #1", tabName = "GlobalDeaths"),
-      menuItem("Jaime #2", tabName = "DeathsByRegion"),
-      menuItem("Dorian", tabName = "VaccinationByState"),
-      menuItem("Hannah#1", tabName = "idk1", icon = icon("chart-area")),
-      menuItem("Hannah#2", tabName = "idk2", icon = icon("table"))
+      menuItem("U.S. States Vaccination Rates (Dorian)", tabName = "VaccinationByState", icon = icon("chart-line")),
+      menuItem("Vaccination Rates (Hannah)", tabName = "idk1", icon = icon("chart-area")),
+      menuItem("Global Deaths (Jaime)", tabName = "GlobalDeaths"),
+      menuItem("Regional Deaths (Jaime)", tabName = "DeathsByRegion")
     )
   ),
   dashboardBody(
@@ -69,7 +68,77 @@ dashboardPage(
               h2("Mainland United States GDP Per Capita"),
               plotOutput("us_gdp_map")
       ),
-    
+      # Dorian
+
+      tabItem(tabName = "VaccinationByState",
+              h2("Placeholder Title Text"),
+              fluidRow(
+                box(
+                  title = "State Selection",
+                  status = "info",
+                  solidHeader = TRUE,
+                  width = 12,
+                  selectInput("state",
+                              "Choose state:",
+                              choices = us_state_vaccinations$location)
+                )
+              ),
+              fluidRow(
+                box(
+                  title = "Placeholder Title Text",
+                  status = "primary",
+                  solidHeader = TRUE,
+                  width = 6,
+                  plotOutput("distPlot") 
+                ),
+                box(
+                  title = "Placeholder Title Text",
+                  status = "primary",
+                  solidHeader = TRUE,
+                  width = 6,
+                  plotOutput("geoplot") 
+                )
+              )
+      ),
+
+      
+      # Hannah
+      tabItem(tabName = "idk1",
+              h2("Vaccination Rates vs Healthcare Expenditure"),
+              
+              # InfoBoxes
+              fluidRow(
+                infoBoxOutput("infoCountries", width = 3),
+                infoBoxOutput("infoCorr", width = 3),
+                infoBoxOutput("infoMin", width = 3),
+                infoBoxOutput("infoMax", width = 3)
+              ),
+              
+              # Scatterplot
+              fluidRow(
+                column(
+                  width = 12,
+                  plotlyOutput("scatter", height = "500px"),
+                  style = "margin-bottom: 40px;"
+                )
+              ),
+              
+              # Tables side-by-side
+              fluidRow(
+                box(
+                  width = 6,
+                  title = "High Income Countries",
+                  tableOutput("table_high")
+                ),
+                box(
+                  width = 6,
+                  title = "Low Income Countries",
+                  tableOutput("table_low")
+                )
+              )
+      ),
+      
+      
       # Jaime
       tabItem(tabName = "GlobalDeaths",
               h2("Global Deaths"),
@@ -131,62 +200,9 @@ dashboardPage(
                   uiOutput("dynamic_output")
                 )
               )
-      ),
-      
-      # Dorian
-
-      tabItem(tabName = "VaccinationByState",
-              h2("Placeholder Title Text"),
-              fluidRow(
-                box(
-                  title = "State Selection",
-                  status = "info",
-                  solidHeader = TRUE,
-                  width = 12,
-                  selectInput("state",
-                              "Choose state:",
-                              choices = us_state_vaccinations$location)
-                )
-              ),
-              fluidRow(
-                box(
-                  title = "Placeholder Title Text",
-                  status = "primary",
-                  solidHeader = TRUE,
-                  width = 6,
-                  plotOutput("distPlot") 
-                ),
-                box(
-                  title = "Placeholder Title Text",
-                  status = "primary",
-                  solidHeader = TRUE,
-                  width = 6,
-                  plotOutput("geoplot") 
-                )
-              )
-      ),
-
-      
-      # Hannah
-      tabItem(tabName = "idk1",
-              h2("Placeholder Title Text"),
-              fluidRow(
-                infoBoxOutput("infoCountries", width = 3),
-                infoBoxOutput("infoCorr", width = 3),
-                infoBoxOutput("infoMin", width = 3),
-                infoBoxOutput("infoMax", width = 3)
-              ),
-              fluidRow(
-                box(width = 12, plotlyOutput("scatter"))
-              )
-      ),
-      
-      tabItem(tabName = "idk2",
-              h2("Placeholder Title Text"),
-              fluidRow(
-                box(width = 12, tableOutput("table"))
-              )
       )
+      
+    
     )
   )
 )
