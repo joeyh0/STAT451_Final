@@ -85,9 +85,11 @@ merged_data_low <- inc_low %>%
 us_state_vaccinations = read.csv("data/us_state_vaccinations.csv")
 us_state_vaccinations = us_state_vaccinations[, c('location', 'date', 'people_fully_vaccinated_per_hundred')]
 us_map <- map_data("state")
+us_state_vaccinations = us_state_vaccinations[!is.na(us_state_vaccinations$people_fully_vaccinated_per_hundred), ]
 
 # Pre-calculate Map Data
 us_state_vaccinations_late = us_state_vaccinations[us_state_vaccinations$date == "2023-05-10", ]
+us_state_vaccinations_late["34229", "location"] = "New York"
 share_states = intersect(tolower(us_state_vaccinations_late$location), us_map$region)
 us_state_vaccinations_late = us_state_vaccinations_late[tolower(us_state_vaccinations_late$location) %in% share_states, ]
 
@@ -101,9 +103,7 @@ geoplot <- ggplot(map_df, aes(long, lat, group = group, fill = people_fully_vacc
   scale_fill_viridis_c(
     option = "mako",
     direction = -1,
-    name = "GDP Per Capita (USD)",
-    labels = scales::label_dollar(prefix = "$", big.mark = ","),
-    breaks = c(50000, 75000, 100000)
+    name = "Value",
   ) +
   theme_minimal() +
   labs(
