@@ -67,7 +67,16 @@ inc <- read_excel("data/country_incomes.xlsx") %>%
   select(Country = Economy, Income = `Income group`) %>%
   filter(Income == "High income")
 
+inc_low <- read_excel("data/country_incomes.xlsx") %>%
+  select(Country = Economy, Income = `Income group`) %>%
+  filter(Income == "Low income")
+
 merged_data <- inc %>%
+  inner_join(exp, by = "Country") %>%
+  inner_join(vax, by = "Country") %>%
+  drop_na()
+
+merged_data_low <- inc_low %>%
   inner_join(exp, by = "Country") %>%
   inner_join(vax, by = "Country") %>%
   drop_na()
