@@ -339,17 +339,31 @@ shinyServer(function(input, output) {
   
   # Main scatterplot
   thePlot <- reactive({
-    df <- theData()
+    df_high <- merged_data
+    df_low  <- merged_data_low
     
-    ggplot(df, aes(x = Expenditure, y = Immunization, text = Country)) +
-      geom_point(color = "steelblue", size = 3) +
-      ggtitle("MCV1 Coverage vs Health Expenditure in 2022") +
+    ggplot() +
+      geom_point(data = df_high,
+                 aes(x = Expenditure, y = Immunization, text = Country),
+                 color = "steelblue", size = 3, alpha = 1) +
+      geom_point(data = df_low,
+                 aes(x = Expenditure, y = Immunization, text = Country),
+                 color = "red", size = 3, alpha = 1) +
+      ggtitle("COVID Immunization Coverage vs Health Expenditure in 2022 in Low/High-Income Countries") +
       xlab("Health Expenditure per Capita (USD)") +
-      ylab("MCV1 Coverage (percent)")
+      ylab("Vaccination Coverage (percent)") +
+      theme_minimal(base_size = 14)
   })
   
+  
   output$scatter <- renderPlotly({
-    ggplotly(thePlot(), tooltip = c("text", "x", "y"))
+    ggplotly(thePlot(), tooltip = c("text", "x", "y")) %>%
+      layout(
+        plot_bgcolor = "#FFFFFF",
+        paper_bgcolor = "#FFFFFF",
+        xaxis = list(showgrid = FALSE),
+        yaxis = list(showgrid = FALSE)
+      )
   })
   
   output$table <- renderTable({
@@ -359,22 +373,6 @@ shinyServer(function(input, output) {
   output$infoCountries <- renderInfoBox({
     df <- theData()
     infoBox("Countries", nrow(df), color = "blue")
-  })
-  
-  output$infoCorr <- renderInfoBox({
-    df <- theData()
-    c <- cor(df$Expenditure, df$Immunization, use = "complete.obs")
-    infoBox("Correlation", round(c, 3), color = "blue")
-  })
-  
-  output$infoMin <- renderInfoBox({
-    df <- theData()
-    infoBox("Min MCV1", min(df$Immunization), color = "blue")
-  })
-  
-  output$infoMax <- renderInfoBox({
-    df <- theData()
-    infoBox("Max MCV1", max(df$Immunization), color = "blue")
   })
   
   output$downloadPlot <- downloadHandler(
@@ -416,6 +414,15 @@ shinyServer(function(input, output) {
     cat("Hover (throttled):\n")
     str(input$plot_hover)
   })
+  
+  output$table_high <- renderTable({
+    merged_data
+  })
+  
+  output$table_low <- renderTable({
+    merged_data_low
+  })
+  
   
   
 })
