@@ -12,8 +12,8 @@ Hannah Ryu, Joey Huang, Jaime Li, Dorian Ramey
 ## Overview
 Our dashboard tells a unified story about **why some regions handled COVID far better than others**, and how **structural factors, economic resilience, and healthcare investment** shapes vaccination outcomes and mortality.
 
-Main story:
-**Vaccination outcomes were not just about individual behavior, but about state-level readiness, economic conditions, and long term health system investment.**
+Research Question:
+**What roles do economic conditions and health system preparedness play in shaping vaccination rates across communities?**
 
 ---
 
