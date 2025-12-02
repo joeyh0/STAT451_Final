@@ -142,9 +142,9 @@ dashboardPage(
       # Jaime
       tabItem(tabName = "GlobalDeaths",
               h2("Global Deaths"),
-              p("There are two data options, new Covid-19 related deaths over time and total Coiv-19 related deaths over time."),
+              p("There are two data options, new Covid-19 related deaths over time and total Covid-19 related deaths over time."),
               p("Both plots contain the approximate date of when vaccines were first beginning to be mass distributed as well as when the first
-    booster vaccines became available (December 2020 and September 2021, respectively."),
+    booster vaccines became available (December 2020 and September 2021, respectively). (Information from the CDC)."),
               fluidRow(
                 box(
                   title = "Plot Controls",
