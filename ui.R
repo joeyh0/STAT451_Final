@@ -71,7 +71,7 @@ dashboardPage(
       # Dorian
 
       tabItem(tabName = "VaccinationByState",
-              h2("Placeholder Title Text"),
+              h2("U.S. State Vaccination Rates"),
               fluidRow(
                 box(
                   title = "State Selection",
@@ -85,14 +85,14 @@ dashboardPage(
               ),
               fluidRow(
                 box(
-                  title = "Placeholder Title Text",
+                  title = "Vaccination Over Time",
                   status = "primary",
                   solidHeader = TRUE,
                   width = 6,
                   plotOutput("distPlot") 
                 ),
                 box(
-                  title = "Placeholder Title Text",
+                  title = "Vaccinations in June 2023",
                   status = "primary",
                   solidHeader = TRUE,
                   width = 6,
