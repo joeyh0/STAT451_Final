@@ -23,12 +23,12 @@ dashboardPage(
   dashboardHeader(title = "STAT 451 Final"),
   dashboardSidebar(
     sidebarMenu(
-      menuItem("GDP Barplots", tabName = "gdp_barplot", icon = icon("chart-bar")),
-      menuItem("US Map", tabName = "usmap", icon = icon("map")),
-      menuItem("U.S. States Vaccination Rates", tabName = "VaccinationByState", icon = icon("chart-line")),
-      menuItem("Vaccination Rates", tabName = "idk1", icon = icon("chart-area")),
-      menuItem("Global Deaths", tabName = "GlobalDeaths"),
-      menuItem("Regional Deaths", tabName = "DeathsByRegion")
+      menuItem("GDP Barplots (Joey)", tabName = "gdp_barplot", icon = icon("chart-bar")),
+      menuItem("US Map (Joey)", tabName = "usmap", icon = icon("map")),
+      menuItem("U.S. States Vaccination Rates (Dorian)", tabName = "VaccinationByState", icon = icon("chart-line")),
+      menuItem("Vaccination Rates (Hannah)", tabName = "idk1", icon = icon("chart-area")),
+      menuItem("Global Deaths (Jaime)", tabName = "GlobalDeaths"),
+      menuItem("Regional Deaths (Jaime)", tabName = "DeathsByRegion")
     )
   ),
   dashboardBody(
@@ -127,12 +127,12 @@ dashboardPage(
               fluidRow(
                 box(
                   width = 6,
-                  title = "High-Income Countries",
+                  title = "High Income Countries",
                   tableOutput("table_high")
                 ),
                 box(
                   width = 6,
-                  title = "Low-Income Countries",
+                  title = "Low Income Countries",
                   tableOutput("table_low")
                 )
               )
