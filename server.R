@@ -348,30 +348,38 @@ shinyServer(function(input, output) {
   
   # Main scatterplot
   thePlot <- reactive({
-    df_high <- merged_data
-    df_low  <- merged_data_low
+    df <- df_combined()
     
-    ggplot() +
-      geom_point(data = df_high,
-                 aes(x = Expenditure, y = Immunization, text = Country),
-                 color = "steelblue", size = 3, alpha = 1) +
-      geom_point(data = df_low,
-                 aes(x = Expenditure, y = Immunization, text = Country),
-                 color = "red", size = 3, alpha = 1) +
-      ggtitle("COVID Immunization Coverage vs Health Expenditure in 2022 in Low/High-Income Countries") +
+    ggplot(df, aes(x = Expenditure, y = Immunization,
+                   color = IncomeGroup,
+                   text = Country)) +
+      geom_point(size = 3, alpha = 1) +
+      scale_color_manual(values = c(
+        "High income" = "steelblue",
+        "Low income" = "red"
+      )) +
+      ggtitle("COVID Immunization Coverage vs Health Expenditure in 2022") +
       xlab("Health Expenditure per Capita (USD)") +
       ylab("Vaccination Coverage (percent)") +
       theme_minimal(base_size = 14)
   })
   
   
+  
   output$scatter <- renderPlotly({
-    ggplotly(thePlot(), tooltip = c("text", "x", "y")) %>%
+    df <- df_combined()
+    
+    plot_ly(df,
+            x = ~Expenditure,
+            y = ~Immunization,
+            color = ~IncomeGroup,
+            colors = c("High income" = "steelblue", "Low income" = "red"),
+            text = ~Country,
+            type = "scatter",
+            mode = "markers",
+            marker = list(size = 10)) %>%
       layout(
-        plot_bgcolor = "#FFFFFF",
-        paper_bgcolor = "#FFFFFF",
-        xaxis = list(showgrid = FALSE),
-        yaxis = list(showgrid = FALSE)
+        legend = list(title = list(text = "Income Group"))
       )
   })
   
